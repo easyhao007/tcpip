@@ -61,8 +61,10 @@ int main()
     struct sockaddr_in s_server;
     s_server.sin_family = PF_INET;
     s_server.sin_port = htons(80);
+    // 一种制定IP的方法
     inet_aton(addr1 , &s_server.sin_addr);
-
+    // 服务器的任意IP
+    s_server.sin_addr.s_addr = htonl(INADDR_ANY);
     return 0;
 }
 
